@@ -77,9 +77,6 @@ void sendTeperatureTS(float temp)
     client.print("\n\n");
     client.print(postStr);
 
-
-
-
   }//end if
   if (client.connect(aws, 8080)) {
 
