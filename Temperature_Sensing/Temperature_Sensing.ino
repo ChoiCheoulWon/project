@@ -1,7 +1,7 @@
 #include <ESP8266WiFi.h>
 #include <OneWire.h>
 #include <DallasTemperature.h>
-
+#include <private.h>
 #define myPeriodic 15 //in sec | Thingspeak pub is 15sec
 #define ONE_WIRE_BUS 14
 OneWire oneWire(ONE_WIRE_BUS);
@@ -10,9 +10,9 @@ float prevTemp = 0;
 const char* server = "api.thingspeak.com";
 const char* aws = "ec2-13-124-136-39.ap-northeast-2.compute.amazonaws.com";
 String url = "/data?";
-String apiKey = "3JX4AACK7CTBHKI7";
-const char* MY_SSID = "SO070VOIP416F";
-const char* MY_PWD = "BEED40416E";
+String apiKey = APIK;
+const char* MY_SSID = SSID;
+const char* MY_PWD = PASS;
 int sent = 0;
 int seq = 0; 
 void setup() {
@@ -76,6 +76,9 @@ void sendTeperatureTS(float temp)
     client.print(postStr.length());
     client.print("\n\n");
     client.print(postStr);
+
+
+
 
   }//end if
   if (client.connect(aws, 8080)) {
