@@ -9,20 +9,25 @@
         var data = google.visualization.arrayToDataTable([
           <%DATA%> 
 	]);
-
         var options = {
           title: 'Temperature',
           curveType: 'function',
           legend: { position: 'bottom' }
-        };
+	};
 
         var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-        chart.draw(data,options);
+        
+	chart.draw(data,options);
       }
-
     </script>
   </head>
   <body>
-    <div id="curve_chart" style="width: 1500px; height: 500px"></div>
+    <div id="curve_chart" style="width: 1200px; height: 500px"></div>
+    	 <%TIME%>
+	 <a href="<%nodejsurl%>" target="_blink"> node.js 소스코드 github url</a>
+	 <br>
+	 <a href="<%arduinourl%>" trget="_blink"> arduino 소스코드 github url</a>
+    	 <br>
+	 <div style="text-align:right"><em><u> created by Choicheoulwon. </u></div> 
   </body>
 </html>
