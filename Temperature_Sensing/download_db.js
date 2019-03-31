@@ -6,11 +6,14 @@ var app = express();
 var fs = require('fs');
 
 mysql = require('mysql');
+
+var priv = require('./priv.json');
+
 var connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'me',
-    password: 'mypassword',
-    database: 'mydb'
+    host: priv.host,
+    user: priv.user,
+    password: priv.password,
+    database: priv.database
 })
 connection.connect();
 
